@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Painel | Gestão de Tarefas</title>
+
+</head>
+
+<body>
+  <header>
+    <nav>
+      <button data-v="painel" class="ativo">Painel</button>
+      <button data-v="colaboradores">Colaboradores</button>
+      <button data-v="tarefas">Tarefas</button>
+      <button data-v="agenda">Agendamentos</button>
+    </nav>
+    <div>Olá, <strong id="usuario"></strong> <button class="btn sec" id="sair">Sair</button></div>
+  </header>
+  <main>
+    <div id="msg" class="msg" role="alert"></div>
+
+    <section id="painel" class="ativo">
+      <h1>Painel principal</h1>
+      <div class="painel">
+        <p>Bem-vindo(a), <strong class="nome"></strong>. Escolha uma opção no menu acima:</p>
+        <p><button class="btn" data-ir="colaboradores">Cadastrar colaboradores</button>
+          <button class="btn" data-ir="tarefas">Gerenciar tarefas</button>
+          <button class="btn" data-ir="agenda">Ver cronograma</button>
+        </p>
+      </div>
+    </section>
+
+    <section id="colaboradores">
+      <h1>Colaboradores</h1>
+      <div class="painel">
+        <h2>Novo colaborador</h2>
+        <form id="f-col">
+          <label>Nome<input id="c-nome" required></label>
+          <label>E-mail<input id="c-email" type="email" required></label>
+          <label>CPF<input id="c-cpf" required maxlength="14" placeholder="000.000.000-00"></label>
+          <label>Cargo<input id="c-cargo" required></label>
+          <button class="btn">Cadastrar</button>
+        </form>
+      </div>
+      <div class="painel">
+        <h2>Buscar</h2>
+        <form id="f-busca">
+          <label>Nome, e-mail ou cargo<input id="busca"></label>
+          <button class="btn">Buscar</button>
+          <button class="btn sec" type="button" id="limpar">Limpar</button>
+        </form>
+      </div>
+      <div class="tabela" id="t-col"></div>
+    </section>
+
+    <section id="tarefas">
+      <h1>Tarefas</h1>
+      <div class="painel">
+        <h2>Nova tarefa</h2>
+        <form id="f-tar">
+          <label>Título<input id="t-titulo" required></label>
+          <label>Responsável<select id="t-resp" required></select></label>
+          <label>Status<select id="t-status">
+              <option>Pendente</option>
+              <option>Em andamento</option>
+              <option>Concluída</option>
+            </select></label>
+          <label>Descrição<input id="t-desc"></label>
+          <button class="btn">Cadastrar</button>
+        </form>
+      </div>
+      <div class="tabela" id="t-tar"></div>
+    </section>
+
+    <section id="agenda">
+      <h1>Agendamentos e prazos</h1>
+      <div class="painel">
+        <h2>Novo agendamento</h2>
+        <form id="f-age">
+          <label>Tarefa<select id="a-tarefa" required></select></label>
+          <label>Data de entrega<input id="a-data" type="date" required></label>
+          <label>Observação<input id="a-obs"></label>
+          <button class="btn">Agendar</button>
+        </form>
+      </div>
+      <div class="tabela" id="t-age"></div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+
+</html>
